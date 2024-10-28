@@ -5,11 +5,10 @@ interface ProductCardProps {
   img: string;
   title: string;
   desc: string;
-  rating: number;
-  price: string;
+  price: string; // Removed rating from here
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ img, title, desc, rating, price }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ img, title, desc, price }) => {
   return (
     <div className="w-60 h-80 border rounded-lg overflow-hidden shadow-md flex flex-col items-center justify-center">
       <div className="relative w-full h-48">
