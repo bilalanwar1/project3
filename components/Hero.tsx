@@ -1,9 +1,10 @@
-"use client";  // Add this at the top to make it a Client Component
+"use client"; // Add this at the top to make it a Client Component
 
 import React from 'react';
 import dynamic from 'next/dynamic';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Image from 'next/image'; // Import the Image component
 
 // Dynamically import the Slider component
 const Slider = dynamic(() => import('react-slick'), { ssr: false });
@@ -16,8 +17,14 @@ interface SlideProps {
 }
 
 const Slides: React.FC<SlideProps> = ({ img }) => (
-    <div className="slide">
-        <img src={img} alt="Slider Image" style={{ width: '100%', height: 'auto' }} />
+    <div className="relative w-full h-96"> {/* Set a height for the slide container */}
+        <Image 
+            src={img} 
+            alt="Slider Image" 
+            layout="fill"  // Use fill for responsive images
+            objectFit="cover"  // Cover to maintain aspect ratio
+            className="rounded-lg"  // Optional: Add styling
+        />
     </div>
 );
 
